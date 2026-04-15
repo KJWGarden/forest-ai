@@ -1,0 +1,185 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css");
+@import "tailwindcss";
+@import "../../node_modules/tw-animate-css/dist/tw-animate.css";
+@source "../../node_modules/streamdown/dist/*.js";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.51 0.16 160);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.02 155);
+  --secondary-foreground: oklch(0.25 0.08 155);
+  --muted: oklch(0.97 0.01 155);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.93 0.04 155);
+  --accent-foreground: oklch(0.25 0.08 155);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: #fafafa;
+  --border: oklch(0.91 0.02 155);
+  --input: oklch(0.91 0.02 155);
+  --ring: oklch(0.60 0.14 160);
+  --radius: 0.625rem;
+  --background: oklch(0.99 0.005 155);
+  --foreground: oklch(0.18 0.04 155);
+  --chart-1: oklch(0.70 0.16 160);
+  --chart-2: oklch(0.60 0.14 155);
+  --chart-3: oklch(0.50 0.12 150);
+  --chart-4: oklch(0.45 0.10 145);
+  --chart-5: oklch(0.40 0.08 140);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 155);
+  --foreground: oklch(0.95 0.01 155);
+  --card: oklch(0.20 0.03 155);
+  --card-foreground: oklch(0.95 0.01 155);
+  --popover: oklch(0.20 0.03 155);
+  --popover-foreground: oklch(0.95 0.01 155);
+  --primary: oklch(0.65 0.16 160);
+  --primary-foreground: oklch(0.15 0.03 155);
+  --secondary: oklch(0.27 0.04 155);
+  --secondary-foreground: oklch(0.95 0.01 155);
+  --muted: oklch(0.27 0.04 155);
+  --muted-foreground: oklch(0.65 0.04 155);
+  --accent: oklch(0.35 0.06 155);
+  --accent-foreground: oklch(0.95 0.01 155);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: #fafafa;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.50 0.12 160);
+  --chart-1: oklch(0.70 0.16 160);
+  --chart-2: oklch(0.60 0.14 155);
+  --chart-3: oklch(0.50 0.12 150);
+  --chart-4: oklch(0.45 0.10 145);
+  --chart-5: oklch(0.40 0.08 140);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+  --radius-2xl: calc(var(--radius) + 1rem);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+* {
+  border-color: var(--border);
+  transition-property:
+    background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .drag-none {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  .desktop-page-backdrop {
+    @media (width >= 48rem) {
+      background-color: oklch(0.94 0.03 150);
+    }
+  }
+
+  .desktop-page-surface {
+    @media (width >= 48rem) {
+      margin-inline: auto;
+      max-width: 760px;
+      border-left: 1px solid oklch(0.85 0.04 155);
+      border-right: 1px solid oklch(0.85 0.04 155);
+      background-color: var(--background);
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.glass-panel {
+  @apply bg-white/50 dark:bg-black/40 backdrop-blur-md border border-emerald-100/40 shadow-md;
+}
+
+.glass-panel-heavy {
+  @apply bg-white/70 dark:bg-black/60 backdrop-blur-xl border border-emerald-100/50 shadow-lg;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
