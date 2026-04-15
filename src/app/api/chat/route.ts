@@ -13,8 +13,19 @@ export async function POST(request: NextRequest) {
     }
 
     const conversationId = typeof body.conversation_id === "string" ? body.conversation_id : "";
-    const files = Array.isArray(body.files) ? body.files : [];
+    const files = Array.isArray(body.files) && body.files.length > 0 ? body.files : undefined;
     const { DIFY_BASE_URL, apiKey, user } = resolveDifyChatContext(body.user);
+
+    const difyPayload: Record<string, unknown> = {
+      inputs: { plant_name: body.query },
+      query: body.query,
+      response_mode: "streaming",
+      conversation_id: conversationId,
+      user,
+    };
+    if (files) {
+      difyPayload.files = files;
+    }
 
     const difyResponse = await fetch(`${DIFY_BASE_URL}/chat-messages`, {
       method: "POST",
@@ -22,18 +33,12 @@ export async function POST(request: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        inputs: {},
-        query: body.query,
-        response_mode: "streaming",
-        conversation_id: conversationId ?? "",
-        user,
-        files,
-      }),
+      body: JSON.stringify(difyPayload),
     });
 
     if (!difyResponse.ok || !difyResponse.body) {
       const errorText = await difyResponse.text().catch(() => "");
+      console.error("[chat] Dify error:", difyResponse.status, errorText);
       return Response.json(
         { error: "Dify request failed", details: errorText },
         { status: difyResponse.status },
@@ -49,6 +54,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
+    console.error("[chat] Server error:", error);
     return Response.json(
       { error: error instanceof Error ? error.message : "Server error" },
       { status: 500 },

@@ -5,7 +5,7 @@ import Image from "next/image";
 export function EmptyState() {
   return (
     <div className="flex min-h-[60dvh] flex-col items-center justify-center gap-4">
-      <div className="relative w-40 h-40 md:w-48 md:h-48 animate-float">
+      <div className="relative w-40 h-40 md:w-48 md:h-48">
         <Image
           src="/img/fore.png"
           alt="포레"

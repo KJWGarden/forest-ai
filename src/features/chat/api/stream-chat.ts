@@ -118,6 +118,7 @@ export async function streamChat({
         if (taskId) onTaskId?.(taskId);
 
         const event = payload.event;
+        // Chat app events
         if (event === "message") {
           const answer = typeof payload.answer === "string" ? payload.answer : "";
           if (answer) onChunk(answer);
@@ -128,6 +129,20 @@ export async function streamChat({
           const nextId =
             typeof payload.conversation_id === "string" ? payload.conversation_id : "";
           if (nextId) onConversationId(nextId);
+        }
+        // Workflow app events
+        if (event === "text_chunk") {
+          const nodeData = payload.data as Record<string, unknown> | undefined;
+          const text = typeof nodeData?.text === "string" ? nodeData.text : "";
+          if (text) onChunk(text);
+        }
+        if (event === "workflow_finished") {
+          const nodeData = payload.data as Record<string, unknown> | undefined;
+          const outputs = nodeData?.outputs as Record<string, unknown> | undefined;
+          const text = typeof outputs?.text === "string" ? outputs.text : "";
+          if (text && text.length > 0) {
+            // Final output from workflow - already streamed via text_chunk
+          }
         }
         if (event === "workflow_started") {
           onNodeStart?.("식물을 관찰하고 있어요...");
