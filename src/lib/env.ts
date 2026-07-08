@@ -3,6 +3,20 @@ type ServerEnv = {
   DIFY_API_KEY: string;
 };
 
+type ElevenLabsEnv = {
+  ELEVENLABS_API_KEY: string;
+};
+
+export function getElevenLabsEnv(): ElevenLabsEnv {
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+
+  if (!apiKey) {
+    throw new Error("Missing required server env: ELEVENLABS_API_KEY");
+  }
+
+  return { ELEVENLABS_API_KEY: apiKey };
+}
+
 export function getServerEnv(): ServerEnv {
   const baseUrl = process.env.DIFY_BASE_URL;
   const apiKey = process.env.DIFY_API_KEY;

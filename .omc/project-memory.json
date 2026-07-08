@@ -1,0 +1,180 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1783521550342,
+  "projectRoot": "/Users/kimgarden/dev/forest-ai",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.2.3",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.4",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build 2>&1 | tail -18",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "eslint"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "feature-based"
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 0,
+      "lastAccessed": 1783521550290,
+      "keyFiles": []
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1783521550291,
+      "keyFiles": []
+    },
+    "src/app": {
+      "path": "src/app",
+      "purpose": "Application code",
+      "fileCount": 4,
+      "lastAccessed": 1783521550292,
+      "keyFiles": [
+        "favicon.ico",
+        "globals.css",
+        "layout.tsx"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1783521550292,
+      "keyFiles": []
+    },
+    "src/lib": {
+      "path": "src/lib",
+      "purpose": "Library code",
+      "fileCount": 4,
+      "lastAccessed": 1783521550292,
+      "keyFiles": [
+        "env.ts",
+        "id.ts",
+        "site.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/features/chat/ui/message-bubble.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1783522270185,
+      "type": "file"
+    },
+    {
+      "path": "src/app/api/tts/route.ts",
+      "accessCount": 4,
+      "lastAccessed": 1783523976301,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/env.ts",
+      "accessCount": 3,
+      "lastAccessed": 1783523960736,
+      "type": "file"
+    },
+    {
+      "path": "src/app/api/upload/route.ts",
+      "accessCount": 1,
+      "lastAccessed": 1783522090661,
+      "type": "file"
+    },
+    {
+      "path": "src/features/chat/model/types.ts",
+      "accessCount": 1,
+      "lastAccessed": 1783522101590,
+      "type": "file"
+    },
+    {
+      "path": "src/features/chat/ui/chat-thread.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1783522129161,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1783522129509,
+      "type": "file"
+    },
+    {
+      "path": "src/features/chat/model/store.ts",
+      "accessCount": 1,
+      "lastAccessed": 1783522130194,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/spinner.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1783522185626,
+      "type": "file"
+    },
+    {
+      "path": "src/features/chat/model/tts-store.ts",
+      "accessCount": 1,
+      "lastAccessed": 1783522235236,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

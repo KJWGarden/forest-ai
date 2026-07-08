@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"head -120 /Users/kimgarden/dev/forest-ai/node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/route.md; echo ===; grep -n -i \\\"deprecat\\\" /Users/kimgarden/dev/forest-ai/...",
+  "error": "Exit code 1\n---\ntitle: route.js\ndescription: API reference for the route.js special file.\n---\n\nRoute Handlers allow you to create custom request handlers for a given route using the Web [Request](https://developer.mozilla.org/docs/Web/API/Request) and [Response](https://developer.mozilla.org/docs/Web/API/Response) APIs.\n\n```ts filename=\"route.ts\" switcher\nexport async function GET() {\n  return Response.json({ message: 'Hello World' })\n}\n```\n\n```js filename=\"route.js\" switcher\nexport async functi...",
+  "timestamp": "2026-07-08T14:48:28.500Z",
+  "retry_count": 1
+}
